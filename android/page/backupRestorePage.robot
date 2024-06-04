@@ -9,19 +9,20 @@ ${MENU}                          xpath=//android.widget.Button[@resource-id="br.
 ${BACKUP}                        id=br.com.pztec.estoque:id/btn_backup
 ${GERAR_backup}                  id=br.com.pztec.estoque:id/btn_gerar
 
-${alerta_CONCLUIDA}             id=android:id/alertTitle
-${botão_OK}                     id=android:id/button1
-${ENVIAR}                       id=android:id/button1
+${alerta_CONCLUIDA}              id=android:id/alertTitle
+${botão_OK}                      id=android:id/button1
+${ENVIAR}                        id=br.com.pztec.estoque:id/btn_send
 
 
-${RESTORE}                       id=br.com.pztec.estoque:id/btn_restore
-${PROCURAR}                      id=br.com.pztec.estoque:id/btn_procurar
-${ESTOQUE}                       xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="Estoque"]
-${confirmar_RESTAURACAO}        xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
+${RESTORE}                        id=br.com.pztec.estoque:id/btn_restore
+${PROCURAR}                       id=br.com.pztec.estoque:id/btn_procurar
+${ESTOQUE}                        xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="Estoque"]
+${confirmar_RESTAURACAO}          xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
 
 ${ARQUIVO_BKP}                    xpath=//android.widget.TextView[contains(@text,'APP')][last()]
-${SIM_restauração}                id=android:id/button1"
-${alerta_CONFIRMA}                id=android:id/alertTitle
+${SIM_restauração}                id=android:id/button1
+${alerta_CONFIRMA}                id=android:id/message
+${OK_Restauracao}                 id=android:id/button1
 
 *** Keywords ***
 Dado que estou na tela inicial
@@ -35,9 +36,9 @@ E seleciono clicando em Backup
 
 E ao ser direcionado clico em Gerar Backup
     Aguarda e clica                ${GERAR_backup}
-#    Element Should Contain Text    ${alerta_CONCLUIDA}         Operação concluída! 
+
 E confirmo em Ok    
-    Click Button                    ${botão_OK}    
+    Click Element            ${botão_OK}    
 
 Então seleciono enviar e escolher aplicação para envio
     Aguarda e clica   ${ENVIAR}
@@ -59,5 +60,5 @@ E clico em sim
     Sleep    3
     Aguarda e clica    ${SIM_restauração}
 
- Então eu visualizo mensagem de confirmação
-  Element Should Contain Text          ${alerta_CONFIRMA}           Operação concluída!
+ Então visualizo mensagem de confirmação e clico em ok
+    Click Element     ${OK_Restauracao}

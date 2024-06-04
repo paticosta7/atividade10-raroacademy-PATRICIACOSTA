@@ -24,6 +24,6 @@ CT02 - Restaurar backup
     E seleciono o arquivo de backup
     Então alerta para confirmar restauração
     E clico em sim 
-    Então eu visualizo mensagem de confirmação
+    Então visualizo mensagem de confirmação e clico em ok
 
 

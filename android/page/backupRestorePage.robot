@@ -19,7 +19,7 @@ ${PROCURAR}                      id=br.com.pztec.estoque:id/btn_procurar
 ${ESTOQUE}                       xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="Estoque"]
 ${confirmar_RESTAURACAO}        xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
 
-${ARQUIVO_BKP}                    xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="APP_20240603.bkp"]
+${ARQUIVO_BKP}                    xpath=//android.widget.TextView[contains(@text,'APP')][last()]
 ${SIM_restauração}                id=android:id/button1"
 ${alerta_CONFIRMA}                id=android:id/alertTitle
 
